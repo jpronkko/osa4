@@ -1,0 +1,39 @@
+GET http://localhost:3001/api/blogs
+
+### New blog entry to non existing user
+POST http://localhost:3001/api/blogs HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "Testiii",
+  "author": "Jared",
+  "url": "https://www.dpreview.com",
+  "likes": "5",
+  "userid": "123"
+}
+
+### New blog entry to existing user mare
+POST http://localhost:3001/api/blogs HTTP/1.1
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hcmUiLCJpZCI6IjVmYmQzZWVmOTIzMzM2Njc4ODA3N2IzYiIsImlhdCI6MTYwNjMxNDUyNX0.KmIYJVsIye58YcdCP69PRNC-brSkITE7fe7n0AuTrck
+
+{
+  "title": "Pero kulakka",
+  "author": "BBC",
+  "url": "https://www.bbc.com",
+  "likes": "5",
+  "userid": "5fb78303ac66f458e0e3162e"
+}
+
+
+###
+DELETE  http://localhost:3001/api/blogs/1
+
+###
+DELETE  http://localhost:3001/api/blogs/5fba927a768e6a3aa0e4c825
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hcmUiLCJpZCI6IjVmYmQzZWVmOTIzMzM2Njc4ODA3N2IzYiIsImlhdCI6MTYwNjMxNDUyNX0.KmIYJVsIye58YcdCP69PRNC-brSkITE7fe7n0AuTrck
+
+###
+GET http://localhost:3001/api/blogs/userblogs/
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hcmUiLCJpZCI6IjVmYmQzZWVmOTIzMzM2Njc4ODA3N2IzYiIsImlhdCI6MTYwNjMxNDUyNX0.KmIYJVsIye58YcdCP69PRNC-brSkITE7fe7n0AuTrck
